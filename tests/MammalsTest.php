@@ -2,38 +2,63 @@
 namespace Test;
 
 use PHPUnit\Framework\TestCase;
+use Classification\Animals;
 use Classification\Mammals;
+use Classification\Types;
 
 class MammalsTest extends TestCase
 {
+  protected $name;
+  protected $dolphins;
+  protected $newSpecies;
+
+  /**
+   * Fixtures
+   * Sets up a state for our test
+   * The setUp method is run before every test method
+   *
+   * @return void
+   */
+  public function setUp() {
+    $this->name = 'Dolphins';
+    $this->dolphins = new Mammals($this->name);
+    $this->newSpecies = new Mammals();
+  }
+
+  /**
+   * Fixtures
+   * Resets our state once the test is completed
+   * the tearDown method is run after every test method
+   *
+   * @return void
+   */
+  public function tearDown() {
+    $this->name = null;
+    $this->dolphins = null;
+    $this->newSpecies = null;
+  }
+
+  public function testMammalType () {
+    $this->assertEquals(Types::MAMMALIA, $this->dolphins->type);
+  }
+
   public function testMammalsName()
   {
-    $name = 'Dolphins';
-    $dolphins = new Mammals($name);
-
-    $this->assertEquals($name, $dolphins->name);
+    $this->assertEquals($this->name, $this->dolphins->name);
 
   }
 
-  public function testMammalsNoName() {
-    $newSpecies = new Mammals();
-
-    $this->assertEquals('Mammals', $newSpecies->name);
+  public function testMammalsNoName () {
+    $this->assertEquals('Mammals', $this->newSpecies->name);
   }
 
-  public function testProduceMilk() {
-    $name = 'Dolphins';
-    $dolphins = new Mammals($name);
-    $produceMilk = $dolphins->produceMilk();
-
-    $this->assertEquals('Dolphins can produce milk', $produceMilk);
+  public function testProduceMilk () {
+    $produceMilk = $this->dolphins->produceMilk();
+    $this->assertEquals($this->name . ' can produce milk', $produceMilk);
   }
 
-  public function testHasFeather() {
-    $name = 'Dolphins';
-    $dolphins = new Mammals($name);
-    $hasFeather = $dolphins->hasFeather();
-
+  public function testHasFeather () {
+    $hasFeather = $this->dolphins->hasFeather();
     $this->assertEquals(false, $hasFeather);
   }
 }

@@ -2,25 +2,39 @@
 namespace Classification;
 
 use Classification\Animals;
+use Classification\Types;
 
 class Mammals extends Animals
 {
-  public $class = 'Mammalia';
+  public $type = Types::MAMMALIA;
   public $name;
 
-  public function __construct($name = null) {
+  const HUMAN_READABLE_NAME = 'Mammals';
+
+  /**
+   * Creates a new Mammal
+   *
+   * @param string $name Provide a human readable name, if none given, a default will be use
+   */
+  public function __construct (string $name = null) {
     if ($name) {
       $this->name = $name;
     } else {
-      $this->name = 'Mammals';
+      $this->name = $this::HUMAN_READABLE_NAME;
     }
   }
 
-  public function produceMilk() {
+  /**
+   * @inheritDoc
+   */
+  public function produceMilk () {
     return $this->name . " can produce milk";
   }
 
-  public function hasFeather() {
+  /**
+   * @inheritDoc
+   */
+  public function hasFeather () {
     return false;
   }
 }
