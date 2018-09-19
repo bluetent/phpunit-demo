@@ -19,7 +19,8 @@ class Mammals extends Animals
   public function __construct (string $name = null) {
     if ($name) {
       $this->name = $name;
-    } else {
+    }
+    else {
       $this->name = $this::HUMAN_READABLE_NAME;
     }
   }

@@ -6,6 +6,13 @@ use Classification\Animals;
 use Classification\Mammals;
 use Classification\Types;
 
+/**
+ * Although not required, tests should correspond to the classes they are testing
+ * A good way to organize your test is to use the ClassNameTest.php naming scheme
+ * But this is not always the case, and will differ based on how your project is structured
+ *
+ * By default PHPUnit command like tester will look for files with *Test.php name
+ */
 class MammalsTest extends TestCase
 {
   protected $name;
