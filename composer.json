@@ -1,0 +1,17 @@
+{
+  "name": "phpunit-demo",
+  "autoload": {
+    "psr-4": {
+      "Classification\\": "src/",
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit -c ./phpunit.xml --colors=always",
+    "coverage": "./vendor/bin/phpunit -c ./phpunit.xml --coverage-html ./coverage --colors=always",
+    "run": "php ./index.php"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  }
+}
