@@ -2,7 +2,6 @@
 namespace Test;
 
 use PHPUnit\Framework\TestCase;
-use Classification\Animals;
 use Classification\Mammals;
 use Classification\Types;
 
@@ -15,8 +14,8 @@ use Classification\Types;
  */
 class MammalsTest extends TestCase
 {
-  protected $name;
   protected $dolphins;
+  protected $name;
   protected $newSpecies;
 
   /**
@@ -59,12 +58,12 @@ class MammalsTest extends TestCase
     $this->assertEquals('Mammals', $this->newSpecies->name);
   }
 
-  public function testProduceMilk () {
+  public function testProduceMilk() {
     $produceMilk = $this->dolphins->produceMilk();
     $this->assertEquals($this->name . ' can produce milk', $produceMilk);
   }
 
-  public function testHasFeather () {
+  public function testHasFeather() {
     $hasFeather = $this->dolphins->hasFeather();
     $this->assertEquals(false, $hasFeather);
   }
